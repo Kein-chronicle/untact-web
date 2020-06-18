@@ -1,7 +1,7 @@
 const DATASET = 'DATASET';
 
 const initialState = {
-    showTops: true
+    lastPage: "/"
 }
 
 const data = (state = initialState, action) => {
@@ -9,7 +9,7 @@ const data = (state = initialState, action) => {
   switch (action.type) {
     case DATASET:
       return {...state, 
-        showTops: action.showTops
+        lastPage: action.lastPage
     }
     default:
       return state;

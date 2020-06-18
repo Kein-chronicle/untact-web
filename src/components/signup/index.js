@@ -19,6 +19,7 @@ function Page() {
         console.log(id, password, tel, name, address, birth, gender);
         history.push('/lists')
     }
+    
     return (
         <div className="container-sm">
             <div className="row">

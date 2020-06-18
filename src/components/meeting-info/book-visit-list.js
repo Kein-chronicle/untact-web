@@ -1,23 +1,12 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { useHistory } from 'react-router';
-import { useDispatch } from 'react-redux';
 
-function Page ({page}) {
-    const dispatch = useDispatch()
-    
-    useEffect(()=>{
-        return ()=>{
-            if (page === 'made-list') {
-                dispatch({type:'DATASET', lastPage:page})
-            }
-        }
-    }, [])
-
+function Page({page}) {
     console.log(page);
     const history = useHistory()
 
     const goInfo = (id) => {
-        history.push("/meeting-info/"+id)
+        history.push("/visit-info/"+id)
     }
     
     return (
@@ -29,13 +18,10 @@ function Page ({page}) {
                             No.
                         </td>
                         <td>
-                            제목
+                            참여자
                         </td>
                         <td>
-                            진행여부
-                        </td>
-                        <td>
-                            참여자수
+                            시간
                         </td>
                     </tr>
                 </thead>
@@ -45,13 +31,10 @@ function Page ({page}) {
                             1
                         </td>
                         <td>
-                            제목입니다
+                            이름
                         </td>
                         <td>
-                            진행중
-                        </td>
-                        <td>
-                            55
+                            13:22
                         </td>
                     </tr>
                 </tbody>

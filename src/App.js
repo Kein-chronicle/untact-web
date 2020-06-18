@@ -17,13 +17,12 @@ import rootReducer from './store'
 // main
 import Main from './components/main'
 import Signup from './components/signup'
-import Login from './components/login'
 import Lists from './components/lists'
 import CreateMeeting from './components/create-meeting'
 import MadeList from './components/made-list'
 import VisitList from './components/visit-list'
 import VisitInfo from './components/visit-info'
-import MettingInfo from './components/metting-info'
+import MeetingInfo from './components/meeting-info'
 
 import Visit from './components/visit'
 import VisitLogin from './components/visit-login'
@@ -41,18 +40,21 @@ function App() {
             {/* normal incomming */}
             <Route exact path="/" component={Main} />
             <Route exact path="/signup" component={Signup} />
-            <Route exact path="/login" component={Login} />
             <Route exact path="/lists" component={Lists} />
             <Route exact path="/create-meeting" component={CreateMeeting} />
-            <Route exact path="/made-list" component={MadeList} />
-            <Route exact path="/visit-list" component={VisitList} />
-            <Route exact path="/visit-info" component={VisitInfo} />
-            <Route exact path="/metting-info" component={MettingInfo} />
+            <Route exact path="/made-list" >
+              <MadeList page="made-list" />
+            </Route>
+            <Route exact path="/visit-list" >
+              <VisitList page="/visit-list" />
+            </Route>
+            <Route exact path="/visit-info/:id" component={VisitInfo} />
+            <Route exact path="/meeting-info/:id" component={MeetingInfo} />
             {/* qr code or link incomming */}
-            <Route exact path="/visit" component={Visit} />
-            <Route exact path="/visit-login" component={VisitLogin} />
-            <Route exact path="/visit-proc-user" component={VisitProcUser} />
-            <Route exact path="/visit-proc-guest" component={VisitProcGuest} />
+            <Route exact path="/visit/:id" component={Visit} />
+            <Route exact path="/visit-login/:id" component={VisitLogin} />
+            <Route exact path="/visit-proc-user/:id" component={VisitProcUser} />
+            <Route exact path="/visit-proc-guest/:id" component={VisitProcGuest} />
             <Route path="/" component={NotFound} />
           </Switch>
         </Router>
