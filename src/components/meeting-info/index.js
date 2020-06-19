@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import QRCORD from 'qrcode.react'
 
 import VisitList from './book-visit-list'
 import { useHistory } from 'react-router'
@@ -24,6 +25,7 @@ function Page(props) {
     }
     return (
         <div>
+            <QRCORD value={"https://untactbook.com/visit/"+id} />
             <button className="btn btn-secondary" onClick={()=>goBack()}>Go back</button>
             <div>
                 제목
